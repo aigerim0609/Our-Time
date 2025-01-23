@@ -1,0 +1,94 @@
+body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    overflow: hidden;
+}
+.container{
+    width: 25vmin;
+    height: 100vmin;
+    font-size: 11vmin;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    animation: animate 5s linear infinite;
+}
+@keyframes  animate {
+    0%,90%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(0.5turn);
+    }
+}
+.container::after{
+    content: ' ';
+    position: absolute;
+    width: 1.8vmin;
+    height: 41vmin;
+    background-color: #4d77ff;
+    top: 5vmin;
+    animation: animate2 5s linear infinite;
+}
+@keyframes  animate2 {
+    0%{
+        transform: translateY(10vmin)
+        scaleY(0.9);
+    }
+    10%,100%{
+        transform: translateY(44vmin);
+    }
+}
+.top,
+.bottom{
+    width: 44vmin;
+    height: 44vmin;
+    border-style: solid;
+    border-color: #fff;
+    backdrop-filter: blur(40vmin);
+    border-width: 0.1vmin, 0.1vmin, 0.1vmin, 0.1vmin;
+    border-radius: 50% 100% 50% 30%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0vmin ,2vmin ,5vmin #fff;
+}
+.top{
+    transform: rotate(-45deg);
+}
+.bottom{
+    transform: rotate(135deg);
+}
+.top::before,
+.bottom::before{
+    content: ' ';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: #4d77ff;
+    top: 5vmin;
+    animation:  5s linear infinite;
+}
+.top::before{
+    border-radius: 0 100% 0 0;
+    animation-name: sandDrop;
+}
+@keyframes  sandDrop{
+    to{
+        transform: translate(-30vmin,30vmin);
+    }
+}
+.bottom::before{
+    border-radius:  0 0 0 35%;
+    transform: translate(30vmin,-30vmin);
+    animation-name: sandFill ;
+}
+@keyframes  sandFill{
+    to{
+        transform: translate(0,0);
+    }
+}
